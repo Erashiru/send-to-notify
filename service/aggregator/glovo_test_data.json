@@ -1,0 +1,53 @@
+{
+  "order_id": "1000000001",
+  "store_id": "2000000002",
+  "order_time": "2023-12-09 15:42:46",
+  "estimated_pickup_time": null,
+  "payment_method": "CASH",
+  "currency": "KGS",
+  "courier": {
+    "name": null,
+    "phone_number": null
+  },
+  "customer": {
+    "name": "TestCustomer",
+    "phone_number": "+71234567890",
+    "hash": "hash1",
+    "invoicing_details": null
+  },
+  "order_code": "order_code_1",
+  "allergy_info": "",
+  "estimated_total_price": 31900,
+  "delivery_fee": 10000,
+  "minimum_basket_surcharge": 3000,
+  "utc_offset_minutes": "360",
+  "customer_cash_payment_amount": 100000,
+  "products": [
+    {
+      "quantity": 1,
+      "price": 31900,
+      "discount": 0,
+      "name": "Роллы \"Кани темпура\"",
+      "id": "00000000-0000-0000-0000-000000000000",
+      "attributes": [],
+      "purchased_product_id": "1233456789"
+    }
+  ],
+  "delivery_address": {
+    "label": "address 1",
+    "latitude": 11.0000001234,
+    "longitude": 22.000000012345
+  },
+  "bundled_orders": [],
+  "pick_up_code": "123",
+  "is_picked_up_by_customer": false,
+  "cutlery_requested": false,
+  "partner_discounts_products": 0,
+  "partner_discounted_products_total": 31900,
+  "total_customer_to_pay": 44900,
+  "loyalty_card": null,
+  "special_requirements": null,
+  "service_fee": 0,
+  "glovo_discounts_products": 0,
+  "discounted_products_total": 31900
+}

@@ -1,0 +1,33 @@
+{
+        "order_id": "123",
+        "discriminator": "marketplace",
+        "eatsId": "190330-123456",
+        "restaurantId": "123",
+        "deliveryInfo": {
+                "clientName": "Ansar I.",
+                "phoneNumber": "+77007007070",
+                "deliveryDate": "",
+                "courierArrivementDate": "",
+                "deliveryAddress": {
+                        "full": "Фурманова",
+                        "latitude": "55.75",
+                        "longitude": "37.65"
+                },
+                "clientArrivementDate": ""
+        },
+        "paymentInfo": {
+                "paymentType": "cash",
+                "itemCost": 3000
+        },
+        "items": [
+                {
+                        "id": "1727291",
+                        "name": "Product 1",
+                        "quantity": 1,
+                        "price": 3000
+                }
+        ],
+        "persons": 1,
+        "comment": "",
+        "promos": []
+}

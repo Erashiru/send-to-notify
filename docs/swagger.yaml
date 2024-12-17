@@ -1,0 +1,3263 @@
+basePath: /v1
+definitions:
+  dto.ErrorResponse:
+    properties:
+      error: {}
+      message:
+        type: string
+    type: object
+  dto.SuccessResponse:
+    properties:
+      access_token:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_chocofood_models.ClientInfo:
+    properties:
+      address:
+        type: string
+      name:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_chocofood_models.ItemModification:
+    properties:
+      count:
+        type: integer
+      external_food_id:
+        type: string
+      food_id:
+        type: string
+      group:
+        type: string
+      modification:
+        type: string
+      price:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_chocofood_models.OrderInfo:
+    properties:
+      code:
+        type: integer
+      comment:
+        type: string
+      delivery_cost:
+        type: number
+      foods:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_chocofood_models.OrderItem'
+        type: array
+      order_cost:
+        type: number
+      payment_type:
+        type: string
+      person_amount:
+        type: integer
+      status:
+        type: string
+      total_price:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_chocofood_models.OrderItem:
+    properties:
+      category:
+        type: string
+      count:
+        type: integer
+      external_food_id:
+        type: string
+      food_id:
+        type: string
+      item:
+        type: string
+      modifications:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_chocofood_models.ItemModification'
+        type: array
+      price:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_chocofood_models.OrderNotification:
+    properties:
+      chocofood_store_id:
+        type: integer
+      client_info:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_chocofood_models.ClientInfo'
+      order_info:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_chocofood_models.OrderInfo'
+    type: object
+  github_com_kwaaka-team_orders-core_core_chocofood_models.OrderUpdateNotification:
+    properties:
+      chocofood_store_id:
+        type: integer
+      code:
+        type: integer
+      datetime_approved:
+        type: string
+      reason_cancelled:
+        type: string
+      status:
+        type: string
+      will_be_cooked_at:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Customer:
+    properties:
+      contact_access_code:
+        type: string
+      contact_number:
+        type: string
+      first_name:
+        type: string
+      order_frequency_at_site:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Delivery:
+    properties:
+      city:
+        type: string
+      contact_access_code:
+        type: string
+      contact_number:
+        type: string
+      customer_name:
+        type: string
+      deliver_by:
+        type: string
+      delivery_fee:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      delivery_notes:
+        type: string
+      line1:
+        type: string
+      line2:
+        type: string
+      location:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Location'
+      postcode:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Item:
+    properties:
+      discount_amount:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      menu_unit_price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      modifiers:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Modifier'
+        type: array
+      name:
+        type: string
+      operational_name:
+        type: string
+      pos_item_id:
+        type: string
+      quantity:
+        type: integer
+      total_price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      unit_price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Location:
+    properties:
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.MenuEvent:
+    properties:
+      body:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.MenuEventBody'
+      event:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.MenuEventBody:
+    properties:
+      menu_upload_result:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.MenuUploadResult'
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.MenuUploadResult:
+    properties:
+      brand_id:
+        type: string
+      errors: {}
+      http_status:
+        type: integer
+      menu_id:
+        type: string
+      site_ids:
+        items:
+          type: string
+        type: array
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Modifier:
+    properties:
+      name:
+        type: string
+      price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Order:
+    properties:
+      asap:
+        type: boolean
+      at:
+        type: string
+      bag_fee:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      cash_due:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      confirm_at:
+        type: string
+      customer:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Customer'
+      cutlery_notes:
+        type: string
+      delivery:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Delivery'
+      display_id:
+        type: string
+      fulfillment_type:
+        type: string
+      id:
+        type: string
+      is_tabletless:
+        type: boolean
+      items:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Item'
+        type: array
+      location_id:
+        type: string
+      offer_discount:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      order_cost:
+        type: number
+      order_notes:
+        type: string
+      order_number:
+        type: string
+      partner_order_subtotal:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      partner_order_total:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      prepare_for:
+        type: string
+      promotions:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Promotion'
+        type: array
+      remake_details:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.RemakeDetails'
+      start_preparing_at:
+        type: string
+      status:
+        type: string
+      status_log:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.StatusLog'
+        type: array
+      status_object:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.StatusObject'
+      subtotal:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      surcharge:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+      table_number:
+        type: string
+      total_price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Price'
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.OrderEvent:
+    properties:
+      body:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.OrderEventBody'
+      event:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.OrderEventBody:
+    properties:
+      order:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.Order'
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.PosItemIds:
+    properties:
+      id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Price:
+    properties:
+      currency_code:
+        type: string
+      fractional:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.Promotion:
+    properties:
+      id:
+        type: string
+      pos_item_ids:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.PosItemIds'
+        type: array
+      type:
+        type: string
+      value:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.RemakeDetails:
+    properties:
+      fault:
+        type: string
+      is_tabletless:
+        type: boolean
+      order_cost:
+        type: number
+      parent_order_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.StatusLog:
+    properties:
+      at:
+        type: string
+      status:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_deliveroo_models.StatusObject:
+    properties:
+      status:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_errors.ErrorResponse:
+    properties:
+      code:
+        example: 400
+        type: integer
+      description:
+        type: string
+      error: {}
+      message:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Address:
+    properties:
+      lat:
+        type: number
+      lon:
+        type: number
+      region:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Region'
+      text:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Branch:
+    properties:
+      external_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Delivery:
+    properties:
+      address:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Address'
+      comment:
+        type: string
+      price:
+        type: number
+      type:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Event:
+    properties:
+      event_id:
+        type: string
+      new_order:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Order'
+      order_changed:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Order'
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Option:
+    properties:
+      external_id:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Order:
+    properties:
+      created_at:
+        type: string
+      delivery:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Delivery'
+      id:
+        type: integer
+      order_comment:
+        type: string
+      payment:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Payment'
+      products:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Product'
+        type: array
+      status:
+        type: string
+      store:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Store'
+      total_price:
+        type: number
+      user:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.User'
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Param:
+    properties:
+      external_id:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      options:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Option'
+        type: array
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Payment:
+    properties:
+      id:
+        type: string
+      status:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Product:
+    properties:
+      external_id:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      params:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Param'
+        type: array
+      price:
+        type: number
+      qty:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Region:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.Store:
+    properties:
+      branch:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Branch'
+      external_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_express24_models.User:
+    properties:
+      name:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.AuthenticateData:
+    properties:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+      grant_type:
+        type: string
+      scope:
+        type: string
+    required:
+    - client_id
+    - client_secret
+    - grant_type
+    - scope
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.Category:
+    properties:
+      id:
+        type: string
+      images:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.CategoryImage'
+        type: array
+      name:
+        type: string
+      parentId:
+        type: string
+      sortOrder:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.CategoryImage:
+    properties:
+      updatedAt:
+        type: string
+      url:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.CreationResult:
+    properties:
+      orderId:
+        type: string
+      result:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.DeliveryInfo:
+    properties:
+      clientArrivementDate:
+        type: string
+      clientName:
+        type: string
+      courierArrivementDate:
+        type: string
+      deliveryAddress:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.MarketPlaceDeliveryAddress'
+      deliveryDate:
+        description: CourierArrivementDate string       `json:"courierArrivementDate"`
+        type: string
+      phoneNumber:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.GetStoreResponse:
+    properties:
+      places:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Place'
+        type: array
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.Item:
+    properties:
+      categoryId:
+        type: string
+      description:
+        type: string
+      id:
+        type: string
+      images:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.ItemImage'
+        type: array
+      isCatchweight:
+        type: boolean
+      measure:
+        type: integer
+      measureUnit:
+        type: string
+      modifierGroups:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.ModifierGroup'
+        type: array
+      name:
+        type: string
+      price:
+        type: integer
+      sortOrder:
+        type: integer
+      vat:
+        type: integer
+      weightQuantum:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.ItemImage:
+    properties:
+      hash:
+        type: string
+      url:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.MarketPlaceDeliveryAddress:
+    properties:
+      full:
+        type: string
+      latitude:
+        type: string
+      longitude:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.Menu:
+    properties:
+      categories:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Category'
+        type: array
+      items:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Item'
+        type: array
+      lastChange:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.Modifier:
+    properties:
+      id:
+        type: string
+      maxAmount:
+        type: integer
+      minAmount:
+        type: integer
+      name:
+        type: string
+      price:
+        type: integer
+      vat:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.ModifierGroup:
+    properties:
+      id:
+        type: string
+      maxSelectedModifiers:
+        type: integer
+      minSelectedModifiers:
+        type: integer
+      modifiers:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Modifier'
+        type: array
+      name:
+        type: string
+      sortOrder:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.Order:
+    description: Discriminator Дискриминатор схемы обьекта. Для MarketplaceOrder равен
+      EatsId Сквозной идентификатор заказа на стороне Яндекс.Еды в формате DDDDDD-DDDDDD
+    properties:
+      comment:
+        type: string
+      deliveryInfo:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.DeliveryInfo'
+      discriminator:
+        example: marketplace
+        type: string
+      eatsId:
+        example: 190330-123456
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.OrderItem'
+        type: array
+      paymentInfo:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.PaymentInfo'
+      persons:
+        type: integer
+      promos:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.OrderPromo'
+        type: array
+      restaurantId:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.OrderItem:
+    properties:
+      id:
+        type: string
+      modifications:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.OrderModification'
+        type: array
+      name:
+        type: string
+      price:
+        type: integer
+      promos:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.OrderPromo'
+        type: array
+      quantity:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.OrderModification:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      price:
+        type: integer
+      quantity:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.OrderPromo:
+    properties:
+      discount:
+        type: integer
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.OrderStatusResponse:
+    properties:
+      comment:
+        type: string
+      status:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.PaymentInfo:
+    properties:
+      itemsCost:
+        type: integer
+      paymentType:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.Place:
+    properties:
+      address:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.Promo:
+    properties:
+      promoItems:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.PromoItem'
+        type: array
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.PromoItem:
+    properties:
+      id:
+        type: string
+      promoId:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.StopListItem:
+    properties:
+      itemId:
+        type: string
+      stock:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.StopListModifier:
+    properties:
+      modifierId:
+        type: string
+      stock:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_models.StopListResponse:
+    properties:
+      items:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.StopListItem'
+        type: array
+      modifiers:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.StopListModifier'
+        type: array
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_resources_http_v1_dto.GetOrdersRequest:
+    properties:
+      end_date:
+        type: string
+      restaurant_ids:
+        items:
+          type: string
+        type: array
+      start_date:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_resources_http_v1_dto.GetOrdersResponse:
+    properties:
+      result:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_resources_http_v1_dto.OrderInfo'
+        type: array
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_resources_http_v1_dto.OrderInfo:
+    properties:
+      orders:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Order'
+        type: array
+      restaurant_id:
+        type: string
+      total:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_externalapi_resources_http_v1_dto.SuccessResponse:
+    properties:
+      access_token:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_glovo_models.AttributeOrder:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      price:
+        type: integer
+      quantity:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_glovo_models.Courier:
+    properties:
+      name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_glovo_models.Customer:
+    properties:
+      hash:
+        type: string
+      invoicing_details:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.InvoicingDetails'
+      name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_glovo_models.DeliveryAddress:
+    properties:
+      label:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_glovo_models.InvoicingDetails:
+    properties:
+      company_address:
+        type: string
+      company_name:
+        type: string
+      tax_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_glovo_models.Order:
+    properties:
+      allergy_info:
+        type: string
+      bundled_orders:
+        items:
+          type: string
+        type: array
+      courier:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.Courier'
+      currency:
+        type: string
+      customer:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.Customer'
+      customer_cash_payment_amount:
+        type: integer
+      cutlery_requested:
+        type: boolean
+      delivery_address:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.DeliveryAddress'
+      delivery_fee:
+        type: integer
+      discounted_products_total:
+        type: integer
+      estimated_pickup_time:
+        type: string
+      estimated_total_price:
+        type: integer
+      glovo_discounts_products:
+        type: integer
+      is_picked_up_by_customer:
+        type: boolean
+      loyalty_card:
+        type: string
+      minimum_basket_surcharge:
+        type: integer
+      order_code:
+        type: string
+      order_id:
+        type: string
+      order_time:
+        type: string
+      partner_discounted_products_total:
+        type: integer
+      partner_discounts_products:
+        type: integer
+      payment_method:
+        type: string
+      pick_up_code:
+        type: string
+      products:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.ProductOrder'
+        type: array
+      special_requirements:
+        type: string
+      store_id:
+        type: string
+      total_customer_to_pay:
+        type: integer
+      utc_offset_minutes:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_glovo_models.ProductOrder:
+    properties:
+      attributes:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.AttributeOrder'
+        type: array
+      id:
+        type: string
+      name:
+        type: string
+      price:
+        type: integer
+      purchased_product_id:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBody:
+    properties:
+      address:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyAddress'
+      customer:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyCustomer'
+      delivery_service:
+        type: string
+      estimated_pickup_time:
+        type: string
+      id:
+        type: string
+      order_time:
+        type: string
+      order_type:
+        type: string
+      payment_info:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyPaymentInfo'
+      people_count:
+        type: integer
+      products:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyProduct'
+        type: array
+      status:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyAddress:
+    properties:
+      label:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyCustomer:
+    properties:
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyModifier:
+    properties:
+      modifier_id:
+        type: string
+      name:
+        type: string
+      price:
+        type: integer
+      quantity:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyPaymentInfo:
+    properties:
+      payment_type:
+        type: string
+      sum:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyProduct:
+    properties:
+      modifiers:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBodyModifier'
+        type: array
+      name:
+        type: string
+      price:
+        type: integer
+      product_id:
+        type: string
+      quantity:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrdersResponse:
+    properties:
+      orders:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrderBody'
+        type: array
+      restaurant_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.StopListPosition:
+    properties:
+      balance:
+        type: integer
+      id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.StopListRequest:
+    properties:
+      positions:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.StopListPosition'
+        type: array
+      restaurant_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_integration_api_models.UpdateOrderStatusRequest:
+    properties:
+      order_id:
+        type: string
+      reason:
+        type: string
+      restaurant_id:
+        type: string
+      status:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.ManageAggregatorStoreRequest:
+    properties:
+      is_open:
+        example: true
+        type: boolean
+    required:
+    - is_open
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.MenuUploadRequest:
+    properties:
+      menu_url:
+        example: https://kwaaka-menu-files.s3.eu-west-1.amazonaws.com/unit_tests_menu/unit_test_menu_5.json
+        type: string
+    required:
+    - menu_url
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.MenuUploadResponse:
+    properties:
+      transaction_id:
+        example: 64fef088b0ea9e7d5d401637
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.MenuUploadStatusResponse:
+    properties:
+      details:
+        items:
+          type: string
+        type: array
+      status:
+        example: SUCCESS
+        type: string
+      transaction_id:
+        example: 64fef088b0ea9e7d5d401637
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.Store:
+    properties:
+      delivery_services:
+        example:
+        - glovo
+        - wolt
+        items:
+          type: string
+        type: array
+      id:
+        example: test-id
+        type: string
+      name:
+        example: test restaurant
+        type: string
+      pos_type:
+        example: test-pos
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateItemStoplistRequest:
+    properties:
+      available:
+        example: false
+        type: boolean
+      price:
+        example: 375
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateItemStoplistRespone:
+    properties:
+      available:
+        example: false
+        type: boolean
+      id:
+        example: test_id
+        type: string
+      price:
+        example: 123
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateOrderStatusRequest:
+    properties:
+      status:
+        example: COOKING_STARTED
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_poster_models.WHEvent:
+    properties:
+      account:
+        example: test
+        type: string
+      account_number:
+        example: "526209"
+        type: string
+      action:
+        example: changed
+        type: string
+      data:
+        example: '{"type":1}'
+        type: string
+      object:
+        example: transaction
+        type: string
+      object_id:
+        example: 24876
+        type: integer
+      time:
+        example: "1695621950"
+        type: string
+      verify:
+        example: faaac2fe811509fd82fe83be47ab5c52
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.Event:
+    properties:
+      response:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.OrderResponse'
+      responseEventCommon:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.ResponseEventCommon'
+    type: object
+  github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.OrderResponse:
+    properties:
+      orderGuid:
+        type: string
+      originalOrderId:
+        type: string
+      rejectingReason:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.RejectingReason'
+      status:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.OrderStatus'
+      substate:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.OrderStatus:
+    properties:
+      isBillPrinted:
+        type: boolean
+      value:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.RejectingReason:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.ResponseEventCommon:
+    properties:
+      agentGuid:
+        type: string
+      dateTimeServerReceiveEventFromAgent:
+        type: string
+      eventGuid:
+        type: string
+      eventType:
+        type: string
+      objectId:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.TotalResponse:
+    properties:
+      data: {}
+      limit:
+        type: integer
+      total:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Address:
+    properties:
+      building:
+        type: string
+      city:
+        type: string
+      company:
+        type: string
+      deliveryArea:
+        type: string
+      deliveryInstructions:
+        type: string
+      deliveryMainArea:
+        type: string
+      entrance:
+        type: string
+      flatNumber:
+        type: string
+      floor:
+        type: string
+      intercom:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      number:
+        type: string
+      postcode:
+        type: integer
+      street:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.CallbackUrls:
+    properties:
+      orderAcceptedUrl:
+        type: string
+      orderPickedUpUrl:
+        type: string
+      orderPreparedUrl:
+        type: string
+      orderRejectedUrl:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.CancelOrderRequest:
+    properties:
+      message:
+        type: string
+      status:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Children:
+    properties:
+      children:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Children'
+        type: array
+      id:
+        type: string
+      name:
+        type: string
+      price:
+        type: string
+      quantity:
+        type: integer
+      remoteCode: {}
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Comments:
+    properties:
+      customerComment:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.CreateOrderRequest:
+    properties:
+      callbackUrls:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.CallbackUrls'
+      code:
+        type: string
+      comments:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Comments'
+      corporateTaxId:
+        type: string
+      createdAt:
+        type: string
+      customer:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Customer'
+      delivery:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Delivery'
+      discounts:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Discounts'
+        type: array
+      expeditionType:
+        type: string
+      expiryDate:
+        type: string
+      extraParameters:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.ExtraParameters'
+      localInfo:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.LocalInfo'
+      payment:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Payment'
+      pickup:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.PickUp'
+      platformRestaurant:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.PlatformRestaurant'
+      preOrder:
+        type: boolean
+      price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Price'
+      products:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Product'
+        type: array
+      shortCode:
+        type: string
+      test:
+        type: boolean
+      token:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.CreateOrderResponse:
+    properties:
+      remoteResponse:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.RemoteResponse'
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Customer:
+    properties:
+      email:
+        type: string
+      firstName:
+        type: string
+      flags:
+        items:
+          type: string
+        type: array
+      lastName:
+        type: string
+      mobilePhone:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Delivery:
+    properties:
+      address:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Address'
+      expectedDeliveryTime:
+        type: string
+      expressDelivery:
+        type: boolean
+      riderPickupTime:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.DeliveryFees:
+    properties:
+      name:
+        type: string
+      value:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Discounts:
+    properties:
+      amount:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.ExtraParameters:
+    properties:
+      property1:
+        type: string
+      property2:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.LocalInfo:
+    properties:
+      countryCode:
+        type: string
+      currencySymbol:
+        type: string
+      platform:
+        type: string
+      platformKey:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.MenuUploadCallbackRequest:
+    properties:
+      description:
+        type: string
+      requestId:
+        type: string
+      status:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Payment:
+    properties:
+      status:
+        type: string
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.PickUp:
+    properties:
+      pickupCode:
+        type: string
+      pickupTime:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.PlatformRestaurant:
+    properties:
+      id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Price:
+    properties:
+      collectFromCustomer:
+        type: string
+      deliveryFees:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.DeliveryFees'
+        type: array
+      grandTotal:
+        type: string
+      payRestaurant:
+        type: string
+      riderTip:
+        type: string
+      totalNet:
+        type: string
+      vatTotal:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Product:
+    properties:
+      categoryName:
+        type: string
+      comment:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      paidPrice:
+        type: string
+      quantity:
+        type: string
+      remoteCode:
+        type: string
+      selectedToppings:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.SelectedToppings'
+        type: array
+      unitPrice:
+        type: string
+      variation:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Variation'
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.RemoteResponse:
+    properties:
+      remoteOrderId:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.SelectedToppings:
+    properties:
+      children:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.Children'
+        type: array
+      id:
+        type: string
+      name:
+        type: string
+      price:
+        type: string
+      quantity:
+        type: integer
+      remoteCode:
+        type: string
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_talabat_models.Variation:
+    properties:
+      name:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.CategoryOrder:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.Coordinates:
+    properties:
+      lat:
+        type: number
+      lon:
+        type: number
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.Delivery:
+    properties:
+      fee:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Price'
+      location:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Location'
+      status:
+        type: string
+      time:
+        type: string
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.Location:
+    properties:
+      apartment:
+        type: string
+      city:
+        type: string
+      coordinates:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Coordinates'
+      country:
+        type: string
+      formatted_address:
+        type: string
+      street_address:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.OptionOrder:
+    properties:
+      count:
+        type: integer
+      id:
+        type: string
+      name:
+        type: string
+      pos_id:
+        type: string
+      price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Price'
+      value:
+        type: string
+      value_pos_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.Order:
+    properties:
+      attribution_id:
+        type: string
+      consumer_comment:
+        type: string
+      consumer_name:
+        type: string
+      consumer_phone_number:
+        type: string
+      created_at:
+        type: string
+      delivery:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Delivery'
+      id:
+        type: string
+      items:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.OrderItem'
+        type: array
+      modified_at:
+        type: string
+      order_number:
+        type: string
+      order_status:
+        type: string
+      pickup_eta:
+        type: string
+      pre_order:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.PreOrder'
+      price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Price'
+      type:
+        type: string
+      venue:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Venus'
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.OrderItem:
+    properties:
+      base_price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Price'
+      category:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.CategoryOrder'
+      count:
+        type: integer
+      id:
+        type: string
+      name:
+        type: string
+      options:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.OptionOrder'
+        type: array
+      pos_id:
+        type: string
+      total_price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Price'
+      unit_price:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Price'
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.OrderNotification:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: string
+      order:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.OrderNotificationBody'
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.OrderNotificationBody:
+    properties:
+      id:
+        type: string
+      resource_url:
+        type: string
+      status:
+        type: string
+      venue_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.PreOrder:
+    properties:
+      pre_order_status:
+        type: string
+      preorder_time:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.Price:
+    properties:
+      amount:
+        type: integer
+      currency:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_wolt_models.Venus:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_yaros_models.OrderUpdateRequestBody:
+    properties:
+      error_description:
+        type: string
+      order_id:
+        type: string
+      status:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_core_yaros_models.StoplistUpdateRequest:
+    properties:
+      restaurant_id:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.ComboInformation:
+    properties:
+      comboGroupId:
+        type: string
+      comboId:
+        type: string
+      comboSourceId:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.Customer:
+    properties:
+      birthdate:
+        type: string
+      blacklistReason:
+        type: string
+      comment:
+        type: string
+      email:
+        type: string
+      gender:
+        type: string
+      id:
+        type: string
+      inBlacklist:
+        type: boolean
+      name:
+        type: string
+      shouldReceiveOrderStatusNotifications:
+        type: boolean
+      surname:
+        type: string
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.ErrorInfo:
+    properties:
+      additionalData: {}
+      code:
+        type: string
+      description:
+        type: string
+      message:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.Event:
+    enum:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    type: integer
+    x-enum-varnames:
+    - DeliveryOrderUpdate
+    - DeliveryOrderError
+    - ReserveUpdate
+    - ReserveError
+    - TableOrderUpdate
+    - TableOrderError
+    - StopListUpdate
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.EventInfo:
+    properties:
+      creationStatus:
+        type: string
+      errorInfo:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.ErrorInfo'
+      id:
+        type: string
+      isDeleted:
+        type: boolean
+      order:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.OrderEvent'
+      organizationId:
+        type: string
+      posId:
+        type: string
+      problem:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.Problem'
+      stopListType:
+        type: string
+      timestamp:
+        type: integer
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.GuestsInfo:
+    properties:
+      count:
+        type: integer
+      splitBetweenPersons:
+        type: boolean
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.Item:
+    properties:
+      amount:
+        type: number
+      comboInformation:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.ComboInformation'
+      comment:
+        type: string
+      modifiers:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.ItemModifier'
+        type: array
+      positionId:
+        type: string
+      price:
+        description: 'TODO: logic for GIFT promo when price equal 0 (yandex)???'
+        type: number
+      productId:
+        type: string
+      productSizeId:
+        type: string
+      type:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.ItemModifier:
+    properties:
+      amount:
+        type: number
+      positionId:
+        type: string
+      price:
+        type: number
+      productGroupId:
+        type: string
+      productId:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.OrderEvent:
+    properties:
+      completeBefore:
+        type: string
+      cookingStartTime:
+        type: string
+      customer:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.Customer'
+      guestsInfo:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.GuestsInfo'
+      isDeleted:
+        type: boolean
+      items:
+        items:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.Item'
+        type: array
+      number:
+        type: integer
+      phone:
+        type: string
+      status:
+        type: string
+      sum:
+        type: string
+      terminalGroupId:
+        type: string
+      whenCreated:
+        type: string
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.Problem:
+    properties:
+      description:
+        type: string
+      hasProblem:
+        type: boolean
+    type: object
+  github_com_kwaaka-team_orders-core_pkg_iiko_models.WebhookEvent:
+    properties:
+      correlationId:
+        type: string
+      eventInfo:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.EventInfo'
+      eventTime:
+        type: string
+      eventType:
+        $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.Event'
+      organizationId:
+        type: string
+    type: object
+  models.Data:
+    properties:
+      amount:
+        type: string
+      count:
+        type: string
+      courier_name:
+        type: string
+      courier_phone:
+        type: string
+      device_id:
+        description: stoplist fields
+        type: string
+      id:
+        type: string
+      number:
+        type: integer
+      order_id:
+        description: order fields
+        type: string
+      restaurant_id:
+        description: integration_api fields
+        type: string
+      status:
+        type: integer
+    type: object
+  models.Event:
+    properties:
+      data:
+        $ref: '#/definitions/models.Data'
+      restaurant_id:
+        type: string
+      status:
+        type: integer
+      type:
+        type: string
+    type: object
+host: staging.kwaaka.com
+info:
+  contact:
+    email: neversi123123@gmail.com
+    name: Kwaaka
+  description: Kwaaka Integration API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Integration API
+  version: "1.0"
+paths:
+  /events:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+      tags:
+      - rkeeperWS
+  /events/orders:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+      tags:
+      - rkeeperWS
+  /events/stoplist:
+    post:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+      tags:
+      - rkeeperWS
+  /glovo/cancelOrder:
+    post:
+      parameters:
+      - description: order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.Order'
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Method cancel Order
+      tags:
+      - glovo
+  /glovo/placeOrder:
+    post:
+      parameters:
+      - description: order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.Order'
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Method create Order
+      tags:
+      - glovo
+  /iiko/events:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: events
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.WebhookEvent'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+      tags:
+      - /iiko
+  /integration/pos/{restaurant_id}/orders:
+    get:
+      parameters:
+      - description: restaurant_id
+        in: path
+        name: restaurant_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.GetOrdersResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Method for update stoplist
+      tags:
+      - integration-pos
+  /integration/pos/order:
+    post:
+      parameters:
+      - description: order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.UpdateOrderStatusRequest'
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Method for update order
+      tags:
+      - integration-pos
+  /integration/pos/stoplist:
+    post:
+      parameters:
+      - description: stoplist
+        in: body
+        name: stoplist
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_integration_api_models.StopListRequest'
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Method for update stoplist
+      tags:
+      - integration-pos
+  /jowi/events:
+    post:
+      parameters:
+      - description: event
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/models.Event'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+      summary: events
+      tags:
+      - jowi
+  /pimmer/placeOrder:
+    post:
+      parameters:
+      - description: storeId
+        in: query
+        name: storeId
+        required: true
+        type: string
+      - description: orderId
+        in: query
+        name: orderId
+        required: true
+        type: string
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: create order
+      tags:
+      - pimmer
+  /poster/code:
+    post:
+      parameters:
+      - description: code
+        in: query
+        name: code
+        required: true
+        type: string
+      - description: account
+        in: query
+        name: account
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: code receiver handler
+      tags:
+      - poster
+  /poster/events:
+    get:
+      parameters:
+      - description: code
+        in: query
+        name: code
+        required: true
+        type: string
+      - description: account
+        in: query
+        name: account
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+      tags:
+      - poster
+    post:
+      parameters:
+      - description: wh_event
+        in: body
+        name: wh_event
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_poster_models.WHEvent'
+      responses:
+        "200":
+          description: OK
+      summary: webhook events handler
+      tags:
+      - poster
+  /rkeeper/events:
+    post:
+      parameters:
+      - description: event
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.Event'
+      responses:
+        "204":
+          description: No Content
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: events
+      tags:
+      - rkeeper
+  /rkeeper/events/stoplist:
+    post:
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              type: string
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: stoplist event
+      tags:
+      - rkeeper
+  /rkeeper/orders/events:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_rkeeperwhite_resources_http_v1_dto.TotalResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: order event
+      tags:
+      - rkeeper
+  /syrve/events:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: events
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_pkg_iiko_models.WebhookEvent'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/dto.ErrorResponse'
+            type: array
+      tags:
+      - /syrve
+  /v1/chocofood/placeOrder:
+    post:
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_chocofood_models.OrderNotification'
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: create chocofood order
+      tags:
+      - chocofood
+  /v1/chocofood/updateOrder:
+    put:
+      parameters:
+      - description: request
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_chocofood_models.OrderUpdateNotification'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: update chocofood order
+      tags:
+      - chocofood
+  /v1/deliveroo/menu-events:
+    post:
+      parameters:
+      - description: menu_event
+        in: body
+        name: menu_event
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.MenuEvent'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      summary: menu event deliveroo
+      tags:
+      - deliveroo
+  /v1/deliveroo/order-events:
+    post:
+      parameters:
+      - description: order_event
+        in: body
+        name: order_event
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_deliveroo_models.OrderEvent'
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      summary: order event deliveroo
+      tags:
+      - deliveroo
+  /v1/express24/order-receive:
+    post:
+      parameters:
+      - description: event
+        in: body
+        name: event
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_express24_models.Event'
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      summary: receive order
+      tags:
+      - express24
+  /v1/glovo/cancelOrder:
+    post:
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      summary: cancel order
+      tags:
+      - glovo
+  /v1/glovo/placeOrder:
+    post:
+      parameters:
+      - description: order
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_glovo_models.Order'
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      summary: create order
+      tags:
+      - glovo
+  /v1/menu/{restaurant_id}/availability:
+    get:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: restaurant_id
+        in: path
+        name: restaurant_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.StopListResponse'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+  /v1/menu/{restaurant_id}/composition:
+    get:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: restaurant_id
+        in: path
+        name: restaurant_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Menu'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+  /v1/menu/{restaurant_id}/promos:
+    get:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: restaurant_id
+        in: path
+        name: restaurant_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Promo'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+  /v1/order:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Order'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.CreationResult'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+  /v1/order/{order_id}:
+    delete:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: order_id
+        in: path
+        name: order_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+    get:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: order_id
+        in: path
+        name: order_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Order'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: order_id
+        in: path
+        name: order_id
+        required: true
+        type: string
+      - description: order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Order'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.Order'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+  /v1/order/{order_id}/status:
+    get:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: order_id
+        in: path
+        name: order_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.OrderStatusResponse'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+  /v1/orders:
+    post:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: orders_request
+        in: body
+        name: orders_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_resources_http_v1_dto.GetOrdersRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_resources_http_v1_dto.GetOrdersResponse'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      summary: get orders
+      tags:
+      - orders
+  /v1/restaurants:
+    get:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_externalapi_models.GetStoreResponse'
+        "400":
+          description: Bad Request
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "401":
+          description: Unauthorized
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+        "500":
+          description: Internal Server Error
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+            type: array
+      tags:
+      - external
+  /v1/security/oauth/token:
+    post:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.SuccessResponse'
+      summary: Authenticate in Kwaaka system
+      tags:
+      - auth
+  /v1/stores:
+    get:
+      parameters:
+      - description: bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.Store'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: get stores
+      tags:
+      - stores
+  /v1/stores/{store_id}/attributes/{attribute_id}:
+    post:
+      parameters:
+      - description: attribute_id
+        in: path
+        name: attribute_id
+        required: true
+        type: string
+      - description: update_item_stoplist_request
+        in: body
+        name: update_item_stoplist_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateItemStoplistRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateItemStoplistRespone'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: stoplist attribute
+      tags:
+      - stores
+  /v1/stores/{store_id}/manage/{delivery_service:
+    post:
+      parameters:
+      - description: store_id
+        in: path
+        name: store_id
+        required: true
+        type: string
+      - description: delivery_service
+        in: path
+        name: delivery_service
+        required: true
+        type: string
+      - description: manage_aggregator_store_request
+        in: body
+        name: manage_aggregator_store_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.ManageAggregatorStoreRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: manage aggregator store
+      tags:
+      - stores
+  /v1/stores/{store_id}/manage/{delivery_service}:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: is_open
+        in: body
+        name: is_open
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.ManageAggregatorStoreRequest'
+      - description: store_id
+        in: path
+        name: store_id
+        required: true
+        type: string
+      - description: delivery_service
+        in: path
+        name: delivery_service
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      tags:
+      - foodband
+  /v1/stores/{store_id}/menus/{delivery_service}:
+    post:
+      parameters:
+      - description: path_id
+        in: path
+        name: store_id
+        required: true
+        type: string
+      - description: delivery_service
+        in: path
+        name: delivery_service
+        required: true
+        type: string
+      - description: menu_upload_request
+        in: body
+        name: menu_upload_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.MenuUploadRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.MenuUploadResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: upload menu
+      tags:
+      - stores
+  /v1/stores/{store_id}/menus/{delivery_service}/{transaction_id}:
+    get:
+      parameters:
+      - description: store_id
+        in: path
+        name: store_id
+        required: true
+        type: string
+      - description: delivery_service
+        in: path
+        name: delivery_service
+        required: true
+        type: string
+      - description: transaction_id
+        in: path
+        name: transaction_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.MenuUploadStatusResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: get menu upload status
+      tags:
+      - stores
+  /v1/stores/{store_id}/orders/{order_id}:
+    post:
+      parameters:
+      - description: token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: status
+        in: body
+        name: status
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateOrderStatusRequest'
+      - description: store_id
+        in: path
+        name: store_id
+        required: true
+        type: string
+      - description: order_id
+        in: path
+        name: order_id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      tags:
+      - foodband
+  /v1/stores/{store_id}/orders{order_id}/status:
+    post:
+      parameters:
+      - description: order_id
+        in: path
+        name: order_id
+        required: true
+        type: string
+      - description: store_id
+        in: path
+        name: store_id
+        required: true
+        type: string
+      - description: update_order_status_request
+        in: body
+        name: update_order_status_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateOrderStatusRequest'
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: upload order status
+      tags:
+      - stores
+  /v1/stores/{store_id}/products/{product_id}:
+    post:
+      parameters:
+      - description: product_id
+        in: path
+        name: product_id
+        required: true
+        type: string
+      - description: update_item_stoplist_request
+        in: body
+        name: update_item_stoplist_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateItemStoplistRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_posintegration_resources_http_v1_dto.UpdateItemStoplistRespone'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      summary: stoplist product
+      tags:
+      - stores
+  /v1/talabat/order/{remoteId}:
+    post:
+      parameters:
+      - description: create_order_request
+        in: body
+        name: create_order_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.CreateOrderRequest'
+      - description: remoteId
+        in: path
+        name: remoteId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.CreateOrderResponse'
+        "400":
+          description: Bad Request
+      summary: create order talabat
+      tags:
+      - talabat
+  /v1/talabat/remoteId/{remoteId}/remoteOrder/{remoteOrderId}/posOrderStatus:
+    post:
+      parameters:
+      - description: cancel_order_request
+        in: body
+        name: cancel_order_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.CancelOrderRequest'
+      - description: remoteId
+        in: path
+        name: remoteId
+        required: true
+        type: string
+      - description: remoteOrderOd
+        in: path
+        name: remoteOrderId
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: Bad Request
+      summary: cancel order talabat
+      tags:
+      - talabat
+  /v1/talabat/requestResult:
+    post:
+      parameters:
+      - description: menu_upload_callback_request
+        in: body
+        name: menu_upload_callback_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_talabat_models.MenuUploadCallbackRequest'
+      responses:
+        "200":
+          description: OK
+      summary: menu upload callback talabat
+      tags:
+      - talabat
+  /v1/wolt/placeOrder:
+    post:
+      parameters:
+      - description: order_notification
+        in: body
+        name: order_notification
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.OrderNotification'
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: create order
+      tags:
+      - wolt
+  /v1/yaros/order-update:
+    patch:
+      parameters:
+      - description: order_update_request_body
+        in: body
+        name: order_update_request_body
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_yaros_models.OrderUpdateRequestBody'
+      responses:
+        "200":
+          description: OK
+      summary: order update
+      tags:
+      - yaros
+  /v1/yaros/stoplist-update:
+    patch:
+      parameters:
+      - description: stoplist_update_request
+        in: body
+        name: stoplist_update_request
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_yaros_models.StoplistUpdateRequest'
+      responses:
+        "200":
+          description: OK
+      summary: stoplist update
+      tags:
+      - yaros
+  /wolt/placeOrder:
+    post:
+      parameters:
+      - description: order
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_wolt_models.Order'
+      responses:
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_kwaaka-team_orders-core_core_errors.ErrorResponse'
+      security:
+      - ApiKeyAuth: []
+      summary: Method create Order
+      tags:
+      - wolt
+securityDefinitions:
+  ApiKeyAuth:
+    description: '"Token from cognito"'
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

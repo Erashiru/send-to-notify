@@ -1,0 +1,14 @@
+.idea/
+*.svg
+*.json
+!/core/integration_api/resources/v1/form_order/*.json
+*.zip
+bin/
+*.zip
+/bin
+.env
+vendor/
+cmd/tmp/
+build/
+.DS_Store
+bootstrap

@@ -1,0 +1,65 @@
+{
+  "event_id": "123",
+  "new_order": {
+    "id": 123,
+    "status": "",
+    "payment": {
+      "id": "123",
+      "status": 200
+    },
+    "store": {
+      "external_id": "123"
+    },
+    "delivery": {
+      "type": 0,
+      "comment": "test",
+      "price": 2800
+    },
+    "user": {
+      "name": "Ansar I."
+    },
+    "products": [
+      {
+        "id": 2134,
+        "external_id": "54354332",
+        "name": "Product 1",
+        "qty": 0,
+        "params": [],
+        "price": 7500
+      }
+    ],
+    "order_comment": "Less salt",
+    "total_price": 2800
+  },
+  "order_changed": {
+    "id": 123,
+    "status": "",
+    "payment": {
+      "id": "123",
+      "status": 200
+    },
+    "store": {
+      "external_id": "123"
+    },
+    "delivery": {
+      "type": 0,
+      "comment": "test",
+      "price": 2800
+    },
+    "user": {
+      "name": "Ansar I."
+    },
+    "products": [
+      {
+        "id": 2134,
+        "external_id": "54354332",
+        "name": "Product 1",
+        "qty": 0,
+        "params": [],
+        "price": 7599
+      }
+    ],
+    "order_comment": "Less salt",
+    "total_price": 2900
+  }
+}

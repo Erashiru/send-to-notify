@@ -1,0 +1,1 @@
+jq . ./deployments/StageConfig.json

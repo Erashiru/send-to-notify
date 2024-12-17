@@ -1,0 +1,75 @@
+{
+  "order_id": "ALLE3ZWVY",
+  "store_id": "test-ansar",
+  "order_time": "2024-03-01 18:30:07",
+  "estimated_pickup_time": "2024-03-01 18:50:29",
+  "payment_method": "DELAYED",
+  "currency": "KZT",
+  "courier": {
+    "name": "Some Guy",
+    "phone_number": "+71234567890"
+  },
+  "customer": {
+    "name": "Ansar I.",
+    "phone_number": "N/A",
+    "hash": "e1304556-c6d4-35ef-9993-8bf28efd36c8",
+    "invoicing_details": null
+  },
+  "order_code": "order_code_1",
+  "allergy_info": "",
+  "estimated_total_price": 80000,
+  "delivery_fee": 10000,
+  "minimum_basket_surcharge": 3000,
+  "utc_offset_minutes": "360",
+  "customer_cash_payment_amount": 100000,
+  "products": [
+    {
+      "quantity": 1,
+      "price": 31900,
+      "name": "Продукт 1",
+      "id": "10057781005778",
+      "attributes": [
+        {
+          "id": "1",
+          "name": "Extra meat",
+          "price": 0,
+          "quantity": 1
+        },
+        {
+          "id": "2",
+          "name": "Extra cheese",
+          "price": 0,
+          "quantity": 2
+        }
+      ],
+      "purchased_product_id": ""
+    },
+    {
+      "quantity": 1,
+      "price": 2900,
+      "discount": 0,
+      "name": "Продукт 2",
+      "id": "10057781005760",
+      "attributes": [],
+      "purchased_product_id": ""
+    }
+  ],
+  "delivery_address": {
+        "label": "address 1",
+        "latitude": 11.0000001234,
+        "longitude": 22.000000012345
+      },
+  "bundled_orders": [
+    "100220116321"
+  ],
+  "pick_up_code": "123",
+  "is_picked_up_by_customer": false,
+  "cutlery_requested": false,
+  "partner_discounts_products": 0,
+  "partner_discounted_products_total": 80000,
+  "total_customer_to_pay": null,
+  "loyalty_card": null,
+  "special_requirements": null,
+  "glovo_discounts_products": 0,
+  "discounted_products_total": 80000
+}
